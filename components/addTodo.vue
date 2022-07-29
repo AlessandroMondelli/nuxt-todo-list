@@ -1,13 +1,12 @@
 <template>
     <div class="todo-add-wrap">
         <div @click="openAddTodo()" class="todo-add-button"> {{ buttonChar }} </div>
-        <AddForm class="todo-add-all-wrap" :class="formOpened" :todoData="todoData" />
+        <AddForm class="todo-add-all-wrap" :class="formOpened" />
     </div>
 </template>
 
 <script>
 export default {
-    props: [ 'todoData' ],
     data() {
         return {
             formOpened: 'no-active',
@@ -23,7 +22,7 @@ export default {
                 this.formOpened = 'no-active';
                 this.buttonChar = '+';
             }
-        }
+        },
     }
 }
 </script>

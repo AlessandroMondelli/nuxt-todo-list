@@ -13,8 +13,9 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
-    props: [ 'todoData' ],
     data() {
         return {
             todoEl: '',
@@ -22,16 +23,11 @@ export default {
     },
     methods: {
         submitForm() {
-            let lastIndex = this.todoData.length + 1;
-            let newDataValue = {
-                id: lastIndex,
-                content: this.todoEl,
-            }
-
-            this.todoData.push(newDataValue);
+            this.addItemList( this.todoEl );
 
             this.todoEl = '';
-        }
+        },
+        ...mapMutations([ 'addItemList' ])
     }
 }
 </script>
